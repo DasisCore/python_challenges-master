@@ -1,0 +1,7 @@
+firstname = input('"What your firstname?"')
+surname = input('"What your surname?"')
+print(surname, firstname)
+fullname = str(surname) + str(firstname)
+print(fullname)
+length = len(fullname)
+print(length)

@@ -1,0 +1,7 @@
+nursery = input('"Enter the first line of a nursery rhyme" : ')
+length_nur = len(nursery)
+print(length_nur)
+start_num = int(input('"Enter the start number" : '))
+end_num = int(input('"Enter the end number" : '))
+part = (nursery[start_num:end_num])
+print(part)
