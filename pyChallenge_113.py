@@ -11,7 +11,12 @@ file.close()
 
 file = open("Books.csv" ,"r")
 search = input("Enter the name of the writer to search for. : ")
+count = 0
 for row in file:
     if search in str(row):
         print(row)
+        count = count + 1
+    elif count == 0:
+        print("Invaild input")
+        count = count + 1
 file.close()
