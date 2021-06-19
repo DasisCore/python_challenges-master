@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+# 124 replay
+>>>>>>> 738ea96c3cc02b5c6fe089b06199b594f3a7db9c
 from tkinter import *
 
 window = Tk()
@@ -21,4 +25,9 @@ entry_box = Entry(text = "")
 entry_box.place(x = 175, y = 50, width = 120, height = 20)
 entry_box["justify"] = "center"
 entry_box.focus()
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 738ea96c3cc02b5c6fe089b06199b594f3a7db9c
 window.mainloop()
