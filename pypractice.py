@@ -1,33 +1,27 @@
-<<<<<<< HEAD
-=======
-# 124 replay
->>>>>>> 738ea96c3cc02b5c6fe089b06199b594f3a7db9c
 from tkinter import *
-
 window = Tk()
-window.title("What's your name?")
-window.geometry("500x250")
+window.title("Hello, world!")
+window.geometry("300x250")
 
 def click():
-    name = entry_box.get()
-    hi_name = Label(text = "Hello!" + name)
-    hi_name.place(x = 100, y = 100, width = 100, height = 20)
-    hi_name["bg"] = "black"
-    hi_name["fg"] = "white"
+    name = textbox1.get()
+    message = str("Hello, " + name)
+    textbox2["bg"] = "black"
+    textbox2["fg"] = "white"
+    textbox2["text"] = message
 
-request = Label(text = "Enter the your name : ")
-request.place(x = 50, y= 50)
+label = Label(text = "Enter the your name !")
+label.place(x = 90, y = 70)
 
-button1 = Button(text = "Press me!", command = click)
-button1.place(x = 300, y = 50, width = 100, height = 20)
+textbox1 = Entry(text = "")
+textbox1.place(x = 90, y = 100, width = 120, height = 20)
+textbox1["justify"] = "center"
+textbox1.focus()
 
-entry_box = Entry(text = "")
-entry_box.place(x = 175, y = 50, width = 120, height = 20)
-entry_box["justify"] = "center"
-entry_box.focus()
-<<<<<<< HEAD
-=======
+textbox2 = Message(text = "", width = 120)
+textbox2.place(x = 90, y = 170, width = 120, height = 20)
 
+button = Button(text = "Press me!", command = click)
+button.place(x = 100, y = 130, width = 100, height = 30)
 
->>>>>>> 738ea96c3cc02b5c6fe089b06199b594f3a7db9c
 window.mainloop()
