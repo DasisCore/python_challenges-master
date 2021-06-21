@@ -1,36 +1,37 @@
 from tkinter import *
 window = Tk()
-window.title("Sum program.")
-window.geometry("400x300")
-
-label = Label(text = "Enter the number : ")
-label.place(x = 30, y =30)
-
-enter_num = Entry(text = 0 )
-enter_num.place(x = 140, y = 30, width = 50, height = 20)
+window.title("Enter the number!")
+window.geometry("400x200")
 
 def click():
-    summation = enter_num.get()
-    summation = int(summation)
-    answer = output_box["text"]
-    answer = int(answer)
-    total = summation + answer
-    output_box["text"] = total
+    num = enter.get()
+    num = int(num)
+    nums = result["text"]
+    nums = int(nums)
+    answer = num + nums
+    result["text"] = answer
 
-def reset():
-    output_box["text"] = 0
-    enter_num.delete(0, END)
-    enter_num.focus()
+def delete():
+    result["text"] = 0
+    enter.delete(0, END)
+    enter["justify"] = "center"
+    enter.focus()
 
-button1 = Button(text = "Add", command = click)
-button1.place(x = 200, y = 30, height = 20)
+label = Label(text = "Enter the number : ")
+label.place(x = 30, y = 32)
 
-button2 = Button(text = "Reset", command = reset)
-button2.place(x = 240, y = 30, height = 20)
+enter = Entry(text = "")
+enter.place(x = 140, y = 30, width = 50, height = 25)
+enter["justify"] = "center"
+enter.focus()
 
-output_box = Message(text = 0)
-output_box.place(x = 30 , y = 60, width = 100 , height = 30)
-output_box["bg"] = "white"
-output_box["fg"] = "blue"
+button = Button(text = "Enter" , command = click )
+button.place(x = 200, y = 30, width = 50, height = 25)
+
+reset_button = Button(text = "Reset", command = delete)
+reset_button.place(x = 260, y = 30, width = 50, height = 25)
+
+result = Message(text = 0, width = 300)
+result.place(x = 30 , y = 60)
 
 window.mainloop()

@@ -1,21 +1,23 @@
 from tkinter import *
 import random
-window = Tk()
-window.title("Dice program.")
-window.geometry("500x250")
 
 r_num = random.randint(1, 6)
 
-label = Label(text = "Dice eye")
-label.place(x = 50, y = 20)
+def click():
+    message["bg"] = "black"
+    message["fg"] = "yellow"
+    message["text"] = r_num
 
-def eye():
-    eye_display = Label(text = r_num)
-    eye_display.place(x = 120, y = 20,  width = 30, height = 20)
-    eye_display["bg"] = "black"
-    eye_display["fg"] = "white"
+window = Tk()
+window.title("Roll the dice")
 
-button = Button(text = "roll the dice", command = eye )
-button.place(x = 50, y = 50, width = 100, height = 30)
+button = Button(text = "Roll", command = click)
+button.place(x = 100, y = 20, width = 50)
+
+label = Label(text = "Roll the dice!")
+label.place(x = 20, y = 23)
+
+message = Message(text = "")
+message.place(x = 20, y = 50, width = 100, height = 25)
 
 window.mainloop()
