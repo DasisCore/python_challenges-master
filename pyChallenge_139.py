@@ -1,4 +1,4 @@
-#first SQL
+#first SQLite3
 import sqlite3
 with sqlite3.connect("Phonebook.db") as db:
     cursor = db.cursor()
