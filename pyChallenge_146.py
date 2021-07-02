@@ -1,32 +1,55 @@
-#first SQLite3
-import sqlite3
-with sqlite3.connect("Phonebook.db") as db:
-    cursor = db.cursor()
+# selection = int(input("Enter your selection : "))
+shiftcode = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+print(shiftcode[0])
+def get_data():
+    message = input("Please enter your message : ")
+    message = message.lower()
+    num = int(input("How much do you want to shift? (1 ~ 26): "))
+    while num > 26 or num == 0:
+        num = int(input("How much do you want to shift? (1 ~ 26): "))
+    data = (message, num)
+    return(data)
 
-cursor.execute(""" CREATE TABLE IF NOT EXISTS Names(
-id integer PRIMARY KEY,
-firstname text,
-surname text,
-phonenumber text); """)
+def make_code(message, num):
+    new_cord = ""
+    for x in message:
+        y = shiftcode.index(x)
+        y = y + num
+        if y > 26:
+            y = y - 27
+        char = shiftcode[y]
+        new_cord = new_cord + char
+    print(new_cord)
+    print()
 
-cursor.execute(""" INSERT INTO Names(id, firstname, surname, phonenumber)
-    VALUES("1","Simon","Howels","01223 349752")""")
-db.commit()
+def decode(message, num):
+    new_cord = ""
+    for x in message:
+        y = shiftcode.index(x)
+        y = y - num
+        if y < 0:
+            y = y + 27
+        char = shiftcode[y]
+        new_cord = new_cord + char
+    print(new_cord)
+    print()
 
-cursor.execute(""" INSERT INTO Names(id, firstname, surname, phonenumber)
-    VALUES("2","Karen","Phillips","01954 295773")""")
-db.commit()
-
-cursor.execute(""" INSERT INTO Names(id, firstname, surname, phonenumber)
-    VALUES("3","Darren","Smith","01583 749012")""")
-db.commit()
-
-cursor.execute(""" INSERT INTO Names(id, firstname, surname, phonenumber)
-    VALUES("4","Anne","Jones","01323 567322")""")
-db.commit()
-
-cursor.execute(""" INSERT INTO Names(id, firstname, surname, phonenumber)
-    VALUES("5","Mark","Smith","01223 855534")""")
-db.commit()
-
-db.close()
+def main():
+    tryagain = True
+    while tryagain:
+        print("1) Make a code")
+        print("2) Decode a message")
+        print("3) Quit")
+        print()
+        select = input("Enter the number : ")
+        if select == "1":
+            (message, num) = get_data()
+            make_code(message, num)
+        elif select == "2":
+            (message, num) = get_data()
+            decode(message, num)
+        elif select == "3":
+            tryagain = False
+        else:
+            print("Invaild input")
+main()
